@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: asgbuggy-deployment
+  name: arshadabuggy-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: asgbuggy
+      app: arshadabuggy
   template:
     metadata:
       labels:
-        app: asgbuggy
+        app: arshadabuggy
     spec:
       containers:
-      - name: asgbuggy
-        image: 429128461530.dkr.ecr.us-east-1.amazonaws.com/asg
+      - name: arshadabuggy
+        image: 399439484575.dkr.ecr.us-west-2.amazonaws.com/arshada
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -24,9 +24,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: asgbuggy
-    k8s-app: asgbuggy
-  name: asgbuggy
+    app: arshadabuggy
+    k8s-app: arshadabuggy
+  name: arshadabuggy
 spec:
   ports:
   - name: http
@@ -35,4 +35,4 @@ spec:
     targetPort: 8080
   type: LoadBalancer
   selector:
-    app: asgbuggy
+    app: arshadabuggy
